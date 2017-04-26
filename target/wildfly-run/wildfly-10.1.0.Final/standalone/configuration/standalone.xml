@@ -417,7 +417,7 @@
 
     <deployments>
         <deployment name="CI346-1.war" runtime-name="CI346-1.war">
-            <content sha1="72131364d86d5b6ebb9037c89817fba19dc2a47a"/>
+            <content sha1="6e5a1ed33edacbda715be435d77c9175c9a98dab"/>
         </deployment>
     </deployments>
 </server>
