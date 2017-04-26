@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.hussein.ci346.Ci346ProjectApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.855 sec - in com.hussein.ci346.Ci346ProjectApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.261 sec - in com.hussein.ci346.Ci346ProjectApplicationTests
