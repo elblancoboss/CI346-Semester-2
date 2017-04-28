@@ -24,3 +24,4 @@ nbdist/
 .nb-gradle/
 node_modules/
 target/CI346-1.war
+/target/

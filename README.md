@@ -9,4 +9,4 @@
 
 
 ## Running
-The project should compile and run by simply running `mvn wildfly:run`. 
+The project should compile and run by simply running `mvn spring-boot:run -X`. 
