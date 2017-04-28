@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   
-  "author": "Hussein M.",
+  "author": "Hussein M",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.23.1",
