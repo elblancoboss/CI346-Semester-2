@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 03, 2017 at 10:10 AM
+-- Generation Time: May 03, 2017 at 01:33 PM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -17,31 +17,31 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `employees`
+-- Database: `staff`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE IF NOT EXISTS `employees` (
-  `PersonID` int(11) NOT NULL AUTO_INCREMENT,
-  `LastName` varchar(255) DEFAULT NULL,
-  `FirstName` varchar(255) DEFAULT NULL,
-  `Shift` varchar(255) DEFAULT NULL,
-  `Job` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`PersonID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `staff` (
+  `IDNumber` int(11) NOT NULL AUTO_INCREMENT,
+  `PersonName` varchar(255) DEFAULT NULL,
+  `ShiftHours` varchar(255) DEFAULT NULL,
+  `Position` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`IDNumber`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `employees`
+-- Dumping data for table `staff`
 --
 
-INSERT INTO `employees` (`PersonID`, `LastName`, `FirstName`, `Shift`, `Job`) VALUES
-(0, 'Mahdi', 'Hussein', '12 - 8', 'chef'),
-(1, 'Ranger', 'Banana', '10-6', 'Nemesis Shooter');
+INSERT INTO `staff` (`IDNumber`, `PersonName`, `ShiftHours`, `Position`) VALUES
+(0, 'Ramos', '3-11', 'Till Person'),
+(1, 'Sergio', '2-10', 'Shift Manager'),
+(2, 'Yaya', '8-4', 'Delivery person');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

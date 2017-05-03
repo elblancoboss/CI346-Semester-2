@@ -12,22 +12,21 @@ public class BackEnd {
 
 	Gson gson = new Gson();
 	
-	@RequestMapping(value = "/api/employees", method= RequestMethod.GET)
+	@RequestMapping(value = "/api/staff", method= RequestMethod.GET)
 	public String GETIndex() {
 		HashMap <String, String> finalResults = new HashMap <String, String>();
 				try {
 					Database db = new Database();
 					
-					ResultSet dbResults = db.execute("SELECT * FROM employees;");
+					ResultSet dbResults = db.execute("SELECT * FROM staff;");
 					if(dbResults != null) {
 						while (dbResults.next()) {
 							HashMap<String, String> items = new HashMap<String, String>();
 		
-							items.put("PersonID", String.valueOf(dbResults.getInt(1)));
-							items.put("LastName", dbResults.getString(2));
-							items.put("FirstName", dbResults.getString(3));
-							items.put("Shift", dbResults.getString(4));
-							items.put("Job", dbResults.getString(5));
+							items.put("IDNumber", String.valueOf(dbResults.getInt(1)));
+							items.put("PersonName", dbResults.getString(2));
+							items.put("ShiftHours", dbResults.getString(3));
+							items.put("Position", dbResults.getString(4));
 							
 							finalResults.put(String.valueOf(finalResults.size()), gson.toJson(items));
 						}
@@ -41,15 +40,15 @@ public class BackEnd {
 		return gson.toJson(finalResults);
 	}
 	
-	@RequestMapping(value = "/api/employees/{id}", method= RequestMethod.POST)
+	@RequestMapping(value = "/api/staff/{id}", method= RequestMethod.POST)
 	public String POSTIndex() {
 		return "Post";
 	}
-	@RequestMapping(value = "/api/employees", method= RequestMethod.PUT)
+	@RequestMapping(value = "/api/staff", method= RequestMethod.PUT)
 	public String PUTIndex() {
 		return "Put";
 	}
-	@RequestMapping(value = "/api/employee/{id}", method= RequestMethod.DELETE, produces = "plain/text")
+	@RequestMapping(value = "/api/staff/{id}", method= RequestMethod.DELETE, produces = "plain/text")
 	public String DELETEIndex() {
 		return "Delete";
 	}

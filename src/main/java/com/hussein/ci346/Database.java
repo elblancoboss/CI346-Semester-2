@@ -13,12 +13,12 @@ public class Database {
 		try {  
 			Class.forName("com.mysql.jdbc.Driver");
 
-			Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3300/employees","root","usbw");
+			Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3300/staff","root","usbw");
 			Statement dbStatement = databaseConnection.createStatement();  
-			ResultSet dbResults = dbStatement.executeQuery("SELECT * FROM employees");
+			ResultSet dbResults = dbStatement.executeQuery("SELECT * FROM staff");
 			
 			while(dbResults.next()) {
-				System.out.println(dbResults.getInt(1) + "  " + dbResults.getString(2) + "  " + dbResults.getString(3) + "  " + dbResults.getString(4) + "  " + dbResults.getString(5));  
+				System.out.println(dbResults.getInt(1) + "  " + dbResults.getString(2) + "  " + dbResults.getString(3) + "  " + dbResults.getString(4));  
 			}
 			
 			databaseConnection.close();
@@ -32,7 +32,7 @@ public class Database {
 	{
 		try 
 		{
-			Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3300/employees","root","usbw");
+			Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3300/staff","root","usbw");
 			Statement dbStatement = databaseConnection.createStatement();  
 			ResultSet dbResults = dbStatement.executeQuery(sql);
 

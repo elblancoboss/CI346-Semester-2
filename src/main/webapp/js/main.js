@@ -1,81 +1,71 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-class DeleteButton extends React.Component {
-		render() {
-			return(
-				<a data-tooltip="Delete employee"><i>Delete</i></a>
-			);
-		}
-	}
-
-class EmployeeList extends React.Component {
+class StaffList extends React.Component {
     render() {
+
     	console.log(this.props);
-    
-        var employeelist = Object.values(this.props.employees).map(employeeObject =>
-            <Employee employeeObject = {JSON.parse(employeeObject)}/>
+    	
+        var stafflist = Object.values(this.props.staffs).map(staffObject =>
+            <Staff staffObject = {JSON.parse(staffObject)}/>
         );
 
         return(
             <table>
                 <thead>
                     <tr>
-                    <th>ID</th>
-                 <th>Last Name</th>
-                 <th>First Name</th>
-                <th>Shift</th>
-                        <th>Job</th>
+                        <th>IDNumber</th>
+                        <th>PersonName</th>
+                        <th>ShiftHours</th>
+                        <th>Position</th>
+                     
                     </tr>
                 </thead>
                 <tbody>
-                    {employeelist}
+                    {stafflist}
                 </tbody>
             </table>
         );
     }
 }
 
-class Employee extends React.Component {
+class Staff extends React.Component {
     render() {
         return(
-            <tr id={"employee-"+this.props.employeeObject['PersonID']}>
-            	<td>{this.props.employeeObject['PersonID']}</td>
-                <td>{this.props.employeeObject['LastName']}</td>
-                <td>{this.props.employeeObject['FirstName']}</td>
-                <td>{this.props.employeeObject['Shift']}</td>
-                <td>{this.props.employeeObject['Job']}</td>
+            <tr id={"staff-"+this.props.staffObject['IDNumbers']}>
+            	<td>{this.props.staffObject['IDNumber']}</td>
+                <td>{this.props.staffObject['PersonName']}</td>
+                <td>{this.props.staffObject['ShiftHours']}</td>
+                <td>{this.props.staffObject['Position']}</td>
             </tr>
         );
     }
 }
 
-class FrontEnd extends React.Component {
-	
-	getEmployeeList() {
-		var list = {};
+class View extends React.Component {
 
-	
+    getStaffList() {
+    	var list = {};
+    	
         $.ajax({
             method: "GET",
             async: false,
-            url: "./api/employees",
+            url: "./api/staff",
         }).done(function(msg) {
-        	
         	console.log(msg);
-        	
-        	  list = JSON.parse(msg);
+            list = JSON.parse(msg);
         });
+        
         return list;
-    }
+}
 
     render() {
-    	console.log(this.state);
     
+    	
         return( 
-            <EmployeeList employees = {this.state.getEmployeeList()} />
+            <StaffList staffs = {this.getStaffList()} />
         );
     }
 }
 
-render(<FrontEnd />, document.getElementById('target'));
+render(<View />, document.getElementById('target'));
