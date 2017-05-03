@@ -9546,30 +9546,185 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-	_inherits(App, _React$Component);
+var DeleteButton = function (_React$Component) {
+    _inherits(DeleteButton, _React$Component);
 
-	function App() {
-		_classCallCheck(this, App);
+    function DeleteButton() {
+        _classCallCheck(this, DeleteButton);
 
-		return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
-	}
+        return _possibleConstructorReturn(this, (DeleteButton.__proto__ || Object.getPrototypeOf(DeleteButton)).apply(this, arguments));
+    }
 
-	_createClass(App, [{
-		key: 'render',
-		value: function render() {
-			return _react2.default.createElement(
-				'h1',
-				null,
-				' employees '
-			);
-		}
-	}]);
+    _createClass(DeleteButton, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'a',
+                { 'data-tooltip': 'Delete employee' },
+                _react2.default.createElement(
+                    'i',
+                    null,
+                    'Delete'
+                )
+            );
+        }
+    }]);
 
-	return App;
+    return DeleteButton;
 }(_react2.default.Component);
 
-(0, _reactDom.render)(_react2.default.createElement(App, null), document.getElementById('target'));
+var EmployeeList = function (_React$Component2) {
+    _inherits(EmployeeList, _React$Component2);
+
+    function EmployeeList() {
+        _classCallCheck(this, EmployeeList);
+
+        return _possibleConstructorReturn(this, (EmployeeList.__proto__ || Object.getPrototypeOf(EmployeeList)).apply(this, arguments));
+    }
+
+    _createClass(EmployeeList, [{
+        key: 'render',
+        value: function render() {
+            console.log(this.props);
+
+            var employeelist = Object.values(this.props.employees).map(function (employeeObject) {
+                return _react2.default.createElement(Employee, { employeeObject: JSON.parse(employeeObject) });
+            });
+
+            return _react2.default.createElement(
+                'table',
+                null,
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'ID'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Last Name'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'First Name'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Shift'
+                        ),
+                        _react2.default.createElement(
+                            'th',
+                            null,
+                            'Job'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    employeelist
+                )
+            );
+        }
+    }]);
+
+    return EmployeeList;
+}(_react2.default.Component);
+
+var Employee = function (_React$Component3) {
+    _inherits(Employee, _React$Component3);
+
+    function Employee() {
+        _classCallCheck(this, Employee);
+
+        return _possibleConstructorReturn(this, (Employee.__proto__ || Object.getPrototypeOf(Employee)).apply(this, arguments));
+    }
+
+    _createClass(Employee, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'tr',
+                { id: "employee-" + this.props.employeeObject['PersonID'] },
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.employeeObject['PersonID']
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.employeeObject['LastName']
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.employeeObject['FirstName']
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.employeeObject['Shift']
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.props.employeeObject['Job']
+                )
+            );
+        }
+    }]);
+
+    return Employee;
+}(_react2.default.Component);
+
+var FrontEnd = function (_React$Component4) {
+    _inherits(FrontEnd, _React$Component4);
+
+    function FrontEnd() {
+        _classCallCheck(this, FrontEnd);
+
+        return _possibleConstructorReturn(this, (FrontEnd.__proto__ || Object.getPrototypeOf(FrontEnd)).apply(this, arguments));
+    }
+
+    _createClass(FrontEnd, [{
+        key: 'getEmployeeList',
+        value: function getEmployeeList() {
+            var list = {};
+
+            $.ajax({
+                method: "GET",
+                async: false,
+                url: "./api/employees"
+            }).done(function (msg) {
+
+                console.log(msg);
+
+                list = JSON.parse(msg);
+            });
+            return list;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            console.log(this.state);
+
+            return _react2.default.createElement(EmployeeList, { employees: this.state.getEmployeeList() });
+        }
+    }]);
+
+    return FrontEnd;
+}(_react2.default.Component);
+
+(0, _reactDom.render)(_react2.default.createElement(FrontEnd, null), document.getElementById('target'));
 
 /***/ }),
 /* 83 */
