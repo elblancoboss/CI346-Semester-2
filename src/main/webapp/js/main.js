@@ -29,14 +29,28 @@ class StaffList extends React.Component {
     }
 }
 
+var ControllerButton = {
+		deleteStaff: function(id){
+	        $.ajax({
+	            method: "DELETE",
+	            async: false,
+	            url: "./api/staff/" + id,
+	        }).done(function(msg) {
+	        	console.log(msg);
+	        	render(<View />, document.getElementById('target'));
+	        });
+		}
+	};
+
 class Staff extends React.Component {
     render() {
         return(
-            <tr id={"staff-"+this.props.staffObject['IDNumbers']}>
+            <tr id={"staff-"+this.props.staffObject['IDNumber']}>
             	<td>{this.props.staffObject['IDNumber']}</td>
                 <td>{this.props.staffObject['PersonName']}</td>
                 <td>{this.props.staffObject['ShiftHours']}</td>
                 <td>{this.props.staffObject['Position']}</td>
+                <td><a onClick={ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber'])}>Delete</a></td>
             </tr>
         );
     }

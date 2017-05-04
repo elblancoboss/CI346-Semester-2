@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.*;
+
 
 
 public class Database {
@@ -43,4 +43,20 @@ public class Database {
 		}
 		
 	}
+	
+	public boolean update(String sql) throws Exception 
+		{
+			try 
+			{
+				Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3300/staff","root","usbw");
+				Statement dbStatement = databaseConnection.createStatement();  
+				boolean error = dbStatement.execute(sql);
+	
+				return error;
+			}
+			catch(Exception e) {
+				throw e;
+			}
+			
+		}
 }

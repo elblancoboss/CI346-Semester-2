@@ -9608,6 +9608,19 @@ var StaffList = function (_React$Component) {
     return StaffList;
 }(_react2.default.Component);
 
+var ControllerButton = {
+    deleteStaff: function deleteStaff(id) {
+        $.ajax({
+            method: "DELETE",
+            async: false,
+            url: "./api/staff/" + id
+        }).done(function (msg) {
+            console.log(msg);
+            (0, _reactDom.render)(_react2.default.createElement(View, null), document.getElementById('target'));
+        });
+    }
+};
+
 var Staff = function (_React$Component2) {
     _inherits(Staff, _React$Component2);
 
@@ -9622,7 +9635,7 @@ var Staff = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'tr',
-                { id: "staff-" + this.props.staffObject['IDNumbers'] },
+                { id: "staff-" + this.props.staffObject['IDNumber'] },
                 _react2.default.createElement(
                     'td',
                     null,
@@ -9642,6 +9655,15 @@ var Staff = function (_React$Component2) {
                     'td',
                     null,
                     this.props.staffObject['Position']
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'a',
+                        { onClick: ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber']) },
+                        'Delete'
+                    )
                 )
             );
         }

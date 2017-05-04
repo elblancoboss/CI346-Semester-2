@@ -3,6 +3,7 @@ package com.hussein.ci346;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import com.google.gson.Gson;
@@ -48,9 +49,21 @@ public class BackEnd {
 	public String PUTIndex() {
 		return "Put";
 	}
-	@RequestMapping(value = "/api/staff/{id}", method= RequestMethod.DELETE, produces = "plain/text")
-	public String DELETEIndex() {
-		return "Delete";
+	@RequestMapping(value = "/api/staff/{id}", method = RequestMethod.DELETE)
+		public String DELIndex(@PathVariable("id") int id) {
+			HashMap <String, String> finalResults = new HashMap <String, String>();
+			try {
+				Database db = new Database();
+				
+				boolean error = db.update("DELETE FROM staff WHERE IDNumber = " + String.valueOf(id) + ";");
+				
+			
+			}
+			catch(Exception e) {
+			
+			}
+	 		
+			return gson.toJson(finalResults);
 	}
 	
 }

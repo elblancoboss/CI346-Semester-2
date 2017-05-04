@@ -25,5 +25,6 @@ To intall the database:
 
 
 ## Running
+- before running the project, please delete the "target" folder from the project path, because a new target folder will be created automatically by compiling the application.
 - The project should compile and run by simply running `mvn spring-boot:run -X`. 
 - or to automatically build the project on Eclipse, on run configurations, in "Goals" type "spring-boot:run -X" 
