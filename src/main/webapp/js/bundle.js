@@ -9577,22 +9577,38 @@ var StaffList = function (_React$Component) {
                         _react2.default.createElement(
                             'th',
                             null,
-                            'IDNumber'
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'IDNumber'
+                            )
                         ),
                         _react2.default.createElement(
                             'th',
                             null,
-                            'PersonName'
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'PersonName'
+                            )
                         ),
                         _react2.default.createElement(
                             'th',
                             null,
-                            'ShiftHours'
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'ShiftHours'
+                            )
                         ),
                         _react2.default.createElement(
                             'th',
                             null,
-                            'Position'
+                            _react2.default.createElement(
+                                'center',
+                                null,
+                                'Position'
+                            )
                         )
                     )
                 ),
@@ -9639,30 +9655,50 @@ var Staff = function (_React$Component2) {
                 _react2.default.createElement(
                     'td',
                     null,
-                    this.props.staffObject['IDNumber']
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    this.props.staffObject['PersonName']
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    this.props.staffObject['ShiftHours']
-                ),
-                _react2.default.createElement(
-                    'td',
-                    null,
-                    this.props.staffObject['Position']
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        this.props.staffObject['IDNumber']
+                    )
                 ),
                 _react2.default.createElement(
                     'td',
                     null,
                     _react2.default.createElement(
-                        'a',
-                        { onClick: ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber']) },
-                        'Delete'
+                        'center',
+                        null,
+                        this.props.staffObject['PersonName']
+                    )
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        this.props.staffObject['ShiftHours']
+                    )
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        this.props.staffObject['Position']
+                    )
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        _react2.default.createElement(
+                            'a',
+                            { onClick: ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber']) },
+                            'Delete'
+                        )
                     )
                 )
             );

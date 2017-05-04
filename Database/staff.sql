@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 03, 2017 at 01:33 PM
+-- Generation Time: May 04, 2017 at 03:58 PM
 -- Server version: 5.6.13
 -- PHP Version: 5.4.17
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `staff` (
   `ShiftHours` varchar(255) DEFAULT NULL,
   `Position` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`IDNumber`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `staff`
@@ -41,7 +41,10 @@ CREATE TABLE IF NOT EXISTS `staff` (
 INSERT INTO `staff` (`IDNumber`, `PersonName`, `ShiftHours`, `Position`) VALUES
 (0, 'Ramos', '3-11', 'Till Person'),
 (1, 'Sergio', '2-10', 'Shift Manager'),
-(2, 'Yaya', '8-4', 'Delivery person');
+(2, 'Yaya', '8-4', 'Delivery person'),
+(3, 'Ramos', '3-11', 'Till Person'),
+(4, 'Yaya', '8-4', 'Delivery person'),
+(5, 'Sergio', '2-10', 'Shift Manager');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

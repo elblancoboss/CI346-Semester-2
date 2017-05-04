@@ -14,10 +14,10 @@ class StaffList extends React.Component {
             <table>
                 <thead>
                     <tr>
-                        <th>IDNumber</th>
-                        <th>PersonName</th>
-                        <th>ShiftHours</th>
-                        <th>Position</th>
+                        <th><center>IDNumber</center></th>
+                        <th><center>PersonName</center></th>
+                        <th><center>ShiftHours</center></th>
+                        <th><center>Position</center></th>
                      
                     </tr>
                 </thead>
@@ -46,11 +46,11 @@ class Staff extends React.Component {
     render() {
         return(
             <tr id={"staff-"+this.props.staffObject['IDNumber']}>
-            	<td>{this.props.staffObject['IDNumber']}</td>
-                <td>{this.props.staffObject['PersonName']}</td>
-                <td>{this.props.staffObject['ShiftHours']}</td>
-                <td>{this.props.staffObject['Position']}</td>
-                <td><a onClick={ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber'])}>Delete</a></td>
+            	<td><center>{this.props.staffObject['IDNumber']}</center></td>
+                <td><center>{this.props.staffObject['PersonName']}</center></td>
+                <td><center>{this.props.staffObject['ShiftHours']}</center></td>
+                <td><center>{this.props.staffObject['Position']}</center></td>
+                <td><center><a onClick={ControllerButton.deleteStaff.bind(this, this.props.staffObject['IDNumber'])}>Delete</a></center></td>
             </tr>
         );
     }
