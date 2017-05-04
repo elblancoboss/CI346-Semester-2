@@ -11,9 +11,9 @@
 I used USBwebserver to create database, download available here: http://www.usbwebserver.net/en/download.php
 
 Settings for USBWebserver:
-Root dir: {path}/root
-Port apache: 8888
-Port MySQL: 3300
+1. Root dir: {path}/root
+2. Port apache: 8888
+3. Port MySQL: 3300
 
 To intall the database:
 1. login to USBWebserver's PHPMyAdmin page
