@@ -1,5 +1,7 @@
 # CI346 Programming Languages, Concurrency and Client Server Computing Semester 2
 
+A Maven web application consists of the HATEOS API, with a ReactJS frontend, using HTML and Javascript, and has a .sql database that is linked to the index page. Springboot was used. automated build can be achieved using Eclipse or command line. the web application shows a list of staff members and their shift rotation and their positions according to the database. 
+
 ## Setup on `Windows`.
 
 * Install [apache-maven-3.3.9-bin.zip](http://www.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip)
