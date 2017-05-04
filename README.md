@@ -23,4 +23,5 @@ To intall the database:
 
 
 ## Running
-The project should compile and run by simply running `mvn spring-boot:run -X`. 
+- The project should compile and run by simply running `mvn spring-boot:run -X`. 
+- or to automatically build the project on Eclipse, on run configurations, in "Goals" type "spring-boot:run -X" 
